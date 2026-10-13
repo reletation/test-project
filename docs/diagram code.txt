@@ -1,0 +1,60 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table profile {
+  profileId uuid [primary key]
+  name string
+  profileDescription string
+  createdAt timestamp
+}
+
+Table resource{
+  resourceId uuid [primary key]
+  profileId uuid [not null]
+  resourceName string
+  resourceUrl string
+  createdAt timestamp
+}
+
+Table skill {
+  skillId uuid [primary key]
+  profileId uuid [not null]
+  skillName string [not null]
+  createdAt timestamp
+}
+
+Table project{
+  projectId uuid [primary key]
+  profileId uuid [not null]
+  projectName uuid [not null]
+  projectUrl uuid [not null]
+  createdAt timestamp
+}
+
+Table work_expierence {
+  workExpierenceId uuid [primary key]
+  profileId uuid [not null]
+  startDate DateTime [not null]
+  endDate DateTime 
+  companyName string [not null]
+  positionName string [not null]
+  createdAt timestamp
+}
+
+Table work_achievement{
+  workAchievementsId uuid [primary key]
+  workExpierenceId uuid [not null]
+  achievementName string [not null]
+  achievementDescription string
+  createdAt timestamp
+}
+
+Ref profile_resources: profile.profileId <? resource.profileId
+
+Ref profile_skills: profile.profileId <? skill.profileId
+
+Ref profile_projects: profile.profileId <? project.profileId
+
+Ref profile_expierence: profile.profileId <? work_expierence.profileId
+
+Ref workExpierence_achievements: work_expierence.workExpierenceId <? work_achievement.workExpierenceId
