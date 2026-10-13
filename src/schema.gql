@@ -1,0 +1,13 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Query {
+  user(tabid: String!): User!
+}
+
+type User {
+  name: String!
+  position: String!
+  tabid: String!
+}
