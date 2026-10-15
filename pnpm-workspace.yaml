@@ -2,8 +2,4 @@
 packages:
   - '**'
 
-allowBuilds:
-  - '@apollo/protobufjs'
-  - '@prisma/engines'
-  - 'esbuild'
-  - 'prisma'
+allowBuilds: ['@apollo/protobufjs', '@prisma/engines', 'esbuild', 'prisma']
