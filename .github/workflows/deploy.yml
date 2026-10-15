@@ -21,7 +21,8 @@ jobs:
       - name: Setup pnpm
         run: |
           corepack enable
-          pnpm install --frozen-lockfile --allow-build=@apollo/protobufjs,@prisma/engines,esbuild,prisma
+          pnpm install --frozen-lockfile
+
       - name: Execute Migrations Db
         run: pnpm exec prisma migrate deploy
         env:
