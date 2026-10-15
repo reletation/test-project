@@ -46,8 +46,8 @@ CREATE TABLE "Experience" (
     "profileId" UUID NOT NULL,
     "startDate" TIMESTAMP(3) NOT NULL,
     "endDate" TIMESTAMP(3),
-    "companyName" TEXT NOT NULL,
-    "positionName" TEXT NOT NULL,
+    "company" TEXT NOT NULL,
+    "position" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "Experience_pkey" PRIMARY KEY ("id")
