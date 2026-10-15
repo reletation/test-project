@@ -5,7 +5,7 @@ export class Experience {
     @Field(() => ID) id!: string;
     @Field() startDate!: Date;
     @Field(() => Date, { nullable: true }) endDate?: Date | null;
-    @Field() companyName!: string;
-    @Field() positionName!: string;
+    @Field() company!: string;
+    @Field() position!: string;
     @Field() createdAt!: Date;
 }

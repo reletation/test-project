@@ -122,8 +122,8 @@ export const ExperienceScalarFieldEnum = {
   profileId: 'profileId',
   startDate: 'startDate',
   endDate: 'endDate',
-  companyName: 'companyName',
-  positionName: 'positionName',
+  company: 'company',
+  position: 'position',
   createdAt: 'createdAt'
 } as const
 

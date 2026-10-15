@@ -49,8 +49,8 @@ model Experience {
   profileId       String                  @db.Uuid
   startDate       DateTime
   endDate         DateTime?
-  companyName     String
-  positionName    String
+  company         String
+  position        String
   createdAt       DateTime
   expAchievements ExperienceAchievement[]
   profile         Profile                 @relation(fields: [profileId], references: [id])
