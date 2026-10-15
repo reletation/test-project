@@ -7,6 +7,7 @@ import { SkillResolver } from './presentation/resolvers/skills.resolver.js';
 import { ExperienceResolver } from './presentation/resolvers/experience.resolver.js';
 import { ProjectResolver } from './presentation/resolvers/project.resolver.js';
 import { PrismaService } from './infrastructure/prisma/prisma.service.js';
+import { AppController } from './presentation/controllers/app/app.controller.js';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { PrismaService } from './infrastructure/prisma/prisma.service.js';
       playground: true
     })
   ],
+  controllers: [AppController],
   providers: [PrismaService, ProfileResolver, SkillResolver, ExperienceResolver, ProjectResolver]
 })
 export class AppModule { }
