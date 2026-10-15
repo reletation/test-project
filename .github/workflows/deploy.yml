@@ -1,0 +1,61 @@
+name: Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.15
+
+      - name: Setup pnpm
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile
+
+      - name: Execute Migrations Db
+        run: pnpm exec prisma migrate deploy
+        env:
+          DATABASE_URL: ${{secrets.DATABASE_URL}}
+
+      - name: Seed db
+        run: pnpm exec prisma db seed
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL}}
+
+      - name: Install vercel cli
+        run: pnpm add -g vercel
+
+      - name: Pull vercel env secrets
+        run: vercel pull --yes --environment=production --token=${{secrets.VERCEL_TOKEN}}
+        env:
+          VERCEL_ORG_ID: ${{secrets.VERCEL_ORG_ID}}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID}}
+
+      - name: Generate prisma client
+        run: pnpm exec primsa generate
+        env:
+          DATABASE_URL: ${{secrets.DATABASE_URL}}
+
+      - name: Build project artifacts
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID}}
+          VERCEL_PROJECT_ID: ${{secrets.VERCEL_PROJECT_ID}}
+          DATABASE_URL: ${{secrets.DATABASE_URL}}
+
+      - name: Prebuild vercel deploy
+        run: vercel deploy --prebuilt --prod --token=${{secrets.VERCEL_TOKEN}}
+        env:
+          VERCEL_ORG_ID: ${{secrets.VERCEL_ORG_ID}}
+          VERCEL_PROJECT_ID: ${{secrets.VERCEL_PROJECT_ID}}

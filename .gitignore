@@ -61,5 +61,4 @@ node_modules/
 dist/
 
 src/infrastructure/prisma/generated/**
-
 src/presentation/generated/**
