@@ -21,7 +21,6 @@ jobs:
       - name: Setup pnpm
         run: |
           corepack enable
-          pnpm approve-builds
           pnpm install --frozen-lockfile
 
       - name: Execute Migrations Db
