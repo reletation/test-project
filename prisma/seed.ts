@@ -145,8 +145,8 @@ async function main() {
         profileId: profile.id,
         startDate: new Date(2024, 11, 27),
         endDate: null,
-        companyName: 'Кордиант Ульяновск',
-        positionName: 'младший специалист',
+        company: 'Кордиант Ульяновск',
+        position: 'младший специалист',
         createdAt: now,
     }
 
