@@ -26,6 +26,8 @@ jobs:
 
       - name: Generate prisma client
         run: pnpm exec prisma generate
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
       - name: Execute Migrations Db
         run: pnpm exec prisma migrate deploy
