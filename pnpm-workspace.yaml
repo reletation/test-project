@@ -1,11 +1,5 @@
 allowBuilds:
-  @apollo/protobufjs: true
-  @prisma/engines: true
+  '@apollo/protobufjs': true
+  '@prisma/engines': true
   esbuild: true
   prisma: true
-
-onlyBuiltDependencies:
-  - "@apollo/protobufjs"
-  - "@prisma/engines"
-  - "esbuild"
-  - "prisma"
