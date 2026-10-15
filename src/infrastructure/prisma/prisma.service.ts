@@ -8,8 +8,7 @@ export class PrismaService extends PrismaClient implements OnModuleInit, OnModul
         super({
             log: ['query'],
             adapter: new PrismaPg(
-                { connectionString: process.env['DATABASE_URL']! },
-                { schema: 'test' }
+                { connectionString: process.env['DATABASE_URL']! }
             )
         })
     }

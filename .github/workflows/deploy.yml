@@ -25,17 +25,17 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Generate prisma client
-        run: pnpm exec prisma generate
+        run: npx prisma generate
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
       - name: Execute Migrations Db
-        run: pnpm exec prisma migrate deploy
+        run: npx prisma migrate deploy
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
       - name: Seed db
-        run: pnpm exec prisma db seed
+        run: npx prisma db seed
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
