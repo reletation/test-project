@@ -2,11 +2,11 @@ import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
-import { ProfileResolver } from './presentation/resolvers/profile.resolver';
-import { SkillResolver } from './presentation/resolvers/skills.resolver';
-import { ExperienceResolver } from './presentation/resolvers/experience.resolver';
-import { ProjectResolver } from './presentation/resolvers/project.resolver';
-import { PrismaService } from './infrastructure/prisma/prisma.service';
+import { ProfileResolver } from './presentation/resolvers/profile.resolver.js';
+import { SkillResolver } from './presentation/resolvers/skills.resolver.js';
+import { ExperienceResolver } from './presentation/resolvers/experience.resolver.js';
+import { ProjectResolver } from './presentation/resolvers/project.resolver.js';
+import { PrismaService } from './infrastructure/prisma/prisma.service.js';
 
 @Module({
   imports: [

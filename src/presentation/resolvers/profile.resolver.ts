@@ -1,8 +1,8 @@
 import { Info, Query, Resolver } from "@nestjs/graphql";
-import { Profile } from "../types/profile.type";
+import { Profile } from "../types/profile.type.js";
 import type { GraphQLResolveInfo } from "graphql";
-import { toPrismaSelect } from "../../infrastructure/prisma/prisma-select";
-import { PrismaService } from "../../infrastructure/prisma/prisma.service";
+import { toPrismaSelect } from "../../infrastructure/prisma/prisma-select.js";
+import { PrismaService } from "../../infrastructure/prisma/prisma.service.js";
 
 @Resolver(() => Profile)
 export class ProfileResolver {

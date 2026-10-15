@@ -1,8 +1,8 @@
 import { Info, Query, Resolver } from '@nestjs/graphql';
-import { Experience } from '../types/experience.type';
+import { Experience } from '../types/experience.type.js';
 import type { GraphQLResolveInfo } from 'graphql';
-import { toPrismaSelect } from '../../infrastructure/prisma/prisma-select';
-import { PrismaService } from '../../infrastructure/prisma/prisma.service';
+import { toPrismaSelect } from '../../infrastructure/prisma/prisma-select.js';
+import { PrismaService } from '../../infrastructure/prisma/prisma.service.js';
 
 @Resolver(() => Experience)
 export class ExperienceResolver {

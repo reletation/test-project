@@ -1,7 +1,7 @@
 import { Field, ID, ObjectType } from "@nestjs/graphql";
-import { Experience } from "./experience.type";
-import { Project } from "./project.type";
-import { Skill } from "./skill.type";
+import { Experience } from "./experience.type.js";
+import { Project } from "./project.type.js";
+import { Skill } from "./skill.type.js";
 
 @ObjectType()
 export class Profile {
