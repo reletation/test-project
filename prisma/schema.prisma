@@ -1,0 +1,66 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/infrastructure/prisma/generated"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Profile {
+  id          String       @id @default(uuid()) @db.Uuid
+  name        String
+  description String
+  createdAt   DateTime
+  projects    Project[]
+  resources   Resource[]
+  skills      Skill[]
+  experience  Experience[]
+}
+
+model Resource {
+  id        String   @id @default(uuid()) @db.Uuid
+  profileId String   @db.Uuid
+  name      String
+  Url       String
+  createdAt DateTime
+  profile   Profile  @relation(fields: [profileId], references: [id])
+}
+
+model Skill {
+  id        String   @id @default(uuid()) @db.Uuid
+  profileId String   @db.Uuid
+  name      String
+  createdAt DateTime
+  profile   Profile  @relation(fields: [profileId], references: [id])
+}
+
+model Project {
+  id        String   @id @default(uuid()) @db.Uuid
+  profileId String   @db.Uuid
+  name      String
+  url       String
+  createdAt DateTime
+  profile   Profile  @relation(fields: [profileId], references: [id])
+}
+
+model Experience {
+  id              String                  @id @default(uuid()) @db.Uuid
+  profileId       String                  @db.Uuid
+  startDate       DateTime
+  endDate         DateTime?
+  companyName     String
+  positionName    String
+  createdAt       DateTime
+  expAchievements ExperienceAchievement[]
+  profile         Profile                 @relation(fields: [profileId], references: [id])
+}
+
+model ExperienceAchievement {
+  id           String     @id @default(uuid()) @db.Uuid
+  experienceId String     @db.Uuid
+  name         String
+  description  String
+  createdAt    DateTime
+  Experience   Experience @relation(fields: [experienceId], references: [id])
+}
