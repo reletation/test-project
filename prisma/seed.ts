@@ -5,7 +5,7 @@ import { PrismaClient, Profile, Project, Resource, Skill, ExperienceAchievement,
 
 const connectionString = `${process.env.DATABASE_URL}`
 const pool = new Pool({ connectionString });
-const adapter = new PrismaPg(pool, { schema: 'test' });
+const adapter = new PrismaPg(pool, { schema: 'public' });
 const prisma = new PrismaClient({ adapter });
 
 async function main() {
