@@ -16,7 +16,8 @@ import { AppController } from './presentation/controllers/app/app.controller.js'
       // autoSchemaFile: join(process.cwd(), 'src/presentation/generated/schema.gql'),
       autoSchemaFile: true,
       sortSchema: true,
-      playground: true
+      playground: true,
+      introspection: true
     })
   ],
   controllers: [AppController],
